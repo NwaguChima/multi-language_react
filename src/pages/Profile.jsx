@@ -34,6 +34,10 @@ const Profile = () => {
           id="email"
         />
       </div>
+      <br />
+      <div className="text-center">
+        <button className="btn btn-dark">Submit</button>
+      </div>
     </div>
   );
 };
