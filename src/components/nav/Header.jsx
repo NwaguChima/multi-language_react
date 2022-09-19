@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const Header = () => {
+  const { i18n, t } = useTranslation(["common"]);
+
+  useEffect(() => {
+    if (localStorage.getItem("i18nextLng")?.length > 2) {
+      i18n.changeLanguage("en");
+    }
+  }, [i18n.language, i18n]);
+
+  const handleLanguageChange = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-2">
       <Link className="navbar-brand" to="/">
-        Home
+        {t("home")}
       </Link>
       <button
         className="navbar-toggler"
@@ -21,7 +35,11 @@ const Header = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <select className="nav-link bg-dark border-0 ml-1 mr-2">
+            <select
+              className="nav-link bg-dark border-0 ml-1 mr-2"
+              onChange={handleLanguageChange}
+              value={localStorage.getItem("i18nextLng")}
+            >
               <option value="en">English</option>
               <option value="fr">Français</option>
               <option value="es">Español</option>
@@ -29,7 +47,7 @@ const Header = () => {
           </li>
           <li className="nav-item ml-2">
             <Link className="nav-link" to="/profile">
-              Profile
+              {t("profile")}
             </Link>
           </li>
         </ul>
