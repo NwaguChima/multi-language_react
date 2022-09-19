@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // components import
@@ -7,13 +8,15 @@ import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-    </Router>
+    <Suspense fallback={"Loading..."}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </Router>
+    </Suspense>
   );
 }
 
