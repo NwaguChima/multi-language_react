@@ -14,4 +14,13 @@ i18n
     fallbackLng: "en",
     debug: false,
     ns: ["common", "home", "profile"],
+    interpolation: {
+      escapeValue: false,
+      formatSeparator: ",",
+    },
+    react: {
+      wait: true,
+    },
   });
+
+export default i18n;
