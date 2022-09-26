@@ -8,9 +8,9 @@ const Header = () => {
 
   useEffect(() => {
     if (localStorage.getItem("i18nextLng")?.length > 2) {
-      i18n.changeLanguage("en");
+      i18next.changeLanguage("en");
     }
-  }, [i18n.language, i18n]);
+  }, []);
 
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value);

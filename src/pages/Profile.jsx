@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 
 const Profile = () => {
   const { t } = useTranslation(["profile", "common"]);
-  console.log(t());
 
   return (
     <div className="container mt-5 col-9 col-md-6">
